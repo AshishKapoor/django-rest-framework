@@ -1,11 +1,20 @@
-from django.http import Http404
 from .models import Article
 from .serializers import ArticleSerializer
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.views import APIView
+from rest_framework import status, generics
 
 
+class ArticleList(generics.ListCreateAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+
+
+class ArticleDetails(generics.RetrieveUpdateDestroyAPIView):
+    lookup_field = 'slug'
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+
+
+'''
 class ArticleList(APIView):
     def get(self, request):
         articles = Article.objects.all()
@@ -44,3 +53,4 @@ class ArticleDetails(APIView):
         article = self.get_object(slug)
         article.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+'''
