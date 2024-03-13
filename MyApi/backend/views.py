@@ -1,16 +1,9 @@
 from .models import Article
 from .serializers import ArticleSerializer
-from rest_framework import viewsets, mixins
+from rest_framework import viewsets
 
 
-class ArticleViewSet(
-    viewsets.GenericViewSet,
-    mixins.ListModelMixin,
-    mixins.CreateModelMixin,
-    mixins.RetrieveModelMixin,
-    mixins.UpdateModelMixin,
-    mixins.DestroyModelMixin,
-):
-    lookup_field = 'slug'
+class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    lookup_field = 'slug'
