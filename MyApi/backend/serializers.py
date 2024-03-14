@@ -4,6 +4,8 @@ from .models import Article
 
 class ArticleSerializer(serializers.ModelSerializer):
     slug = serializers.SlugField(read_only=True)
+    # hides the field below from /api form
+    author = serializers.StringRelatedField()
 
     class Meta:
         model = Article
