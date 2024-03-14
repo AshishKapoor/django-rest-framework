@@ -1,6 +1,6 @@
 # django-rest-framework backend
 
-### References
+### Deployment References
 1. Gunicorn - https://docs.gunicorn.org/en/stable/configure.html
 
 ## Run locally
