@@ -3,6 +3,11 @@
 ### Deployment References
 1. Gunicorn - https://docs.gunicorn.org/en/stable/configure.html
 
+## For Migration to Postgres
+```
+$ pip install psycopg2
+```
+
 ## Run locally
 
 http://0.0.0.0:8000
